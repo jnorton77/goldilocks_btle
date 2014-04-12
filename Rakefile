@@ -9,6 +9,14 @@ rescue LoadError
 end
 
 Motion::Project::App.setup do |app|
-  # Use `rake config' to see complete project settings.
   app.name = 'btle'
+  # Use `rake config' to see complete project settings.
+  app.vendor_project("vendor/HXMBLEConnectionManager",
+    :products => ["libhxm2sdk.a"],
+    :headers_dir => "HXMBLEConnectionManager.h", "PhysiologicalData.h" )
+  app.frameworks << 'Foundation'
+  app.frameworks << 'CoreBluetooth'
+  app.frameworks << 'UIKit'
+  app.frameworks << 'CoreGraphics'
+
 end
